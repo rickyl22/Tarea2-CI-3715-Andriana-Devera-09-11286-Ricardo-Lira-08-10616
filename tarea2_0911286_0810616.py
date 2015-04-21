@@ -1,7 +1,7 @@
 '''
 Created on Apr 20, 2015
 
-@author: Ricardo
+@author: Ricardo Lira y Adriana Devera
 '''
 import unittest
 from calcularPrecio import *

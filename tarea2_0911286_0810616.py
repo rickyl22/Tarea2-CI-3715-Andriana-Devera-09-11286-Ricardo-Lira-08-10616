@@ -38,8 +38,9 @@ class calcularPrecioTest(unittest.TestCase):
             fail("El metodo debio generar error!")
         except Exception:
             pass
-        
-   
+    ##Se procede a realizar un caso de prueba con malicia.
+    def testCalcularPrecioMal(self):
+    pass 
    
 
 

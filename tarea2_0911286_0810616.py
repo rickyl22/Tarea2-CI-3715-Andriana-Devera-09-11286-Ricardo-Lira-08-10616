@@ -38,16 +38,17 @@ class calcularPrecioTest(unittest.TestCase):
             fail("El metodo debio generar error!")
         except Exception:
             pass
-    ##Se procede a realizar un caso de prueba con malicia.
+
+            ##Se procede a realizar casos de prueba con malicia.
     def testCalcularPrecioMal1(self):
-        Prec= TarifaMal(200,500)
+        Prec= Tarifa(200,500)
         tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-10/15:40","%y-%m-%d/%H:%M")]
         try:
             calcularPrecio(Prec, tiempo)
             fail("Se debe generar un error de calculo de tarifa")
+        except Exception:
             pass 
    
-
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

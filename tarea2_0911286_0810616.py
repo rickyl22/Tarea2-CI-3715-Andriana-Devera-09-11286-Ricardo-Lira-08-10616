@@ -39,8 +39,13 @@ class calcularPrecioTest(unittest.TestCase):
         except Exception:
             pass
     ##Se procede a realizar un caso de prueba con malicia.
-    def testCalcularPrecioMal(self):
-    pass 
+    def testCalcularPrecioMal1(self):
+        Prec= TarifaMal(200,500)
+        tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-10/15:40","%y-%m-%d/%H:%M")]
+        try:
+            calcularPrecio(Prec, tiempo)
+            fail("Se debe generar un error de calculo de tarifa")
+            pass 
    
 
 

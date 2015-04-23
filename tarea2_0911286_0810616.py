@@ -39,9 +39,9 @@ class calcularPrecioTest(unittest.TestCase):
         except Exception:
             pass
 
-            ##Se procede a realizar casos de prueba con malicia.
-    def testCalcularPrecioMal1(self):
-        Prec= Tarifa(200,500)
+    ##Se procede a realizar caso de prueba con malicia.
+    def testCalcularPrecio1(self):
+        Prec= Tarifa(200,500a)
         tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-10/15:40","%y-%m-%d/%H:%M")]
         try:
             calcularPrecio(Prec, tiempo)
@@ -49,6 +49,27 @@ class calcularPrecioTest(unittest.TestCase):
         except Exception:
             pass 
    
+    def testTarifaFlotante(self):
+        Tar = Tarifa(2.33333333333,3.5555555)
+        tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-16/16:38","%y-%m-%d/%H:%M")]
+        calcularPrecio(Tar,tiempo)
+        pass
+
+    def testTarifaCaracter(self):
+        Tar = Tarifa("a","b")
+        tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-16/16:38","%y-%m-%d/%H:%M")]
+        calcularPrecio(Tar,tiempo)
+        pass
+    
+    def testFechaFinalAnterior(self):
+        Tar = Tarifa(100,200)
+        tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-5/15:30","%y-%m-%d/%H:%M")]
+        try:
+            calcularPrecio(Tar, tiempo)
+        except Exception:
+            pass
+        else:
+            self.fail("El metodo debio tirar error! El fin de la reserva debe ser posterior al inicio de la reserva")
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

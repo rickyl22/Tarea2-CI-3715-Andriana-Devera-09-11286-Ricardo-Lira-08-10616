@@ -41,7 +41,7 @@ class calcularPrecioTest(unittest.TestCase):
 
     ##Se procede a realizar caso de prueba con malicia.
     def testCalcularPrecio1(self):
-        Prec= Tarifa(200,500a)
+        Prec= Tarifa(200,500)
         tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-10/15:40","%y-%m-%d/%H:%M")]
         try:
             calcularPrecio(Prec, tiempo)
@@ -70,6 +70,8 @@ class calcularPrecioTest(unittest.TestCase):
             pass
         else:
             self.fail("El metodo debio tirar error! El fin de la reserva debe ser posterior al inicio de la reserva")
+            
+        
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

@@ -84,9 +84,7 @@ class calcularPrecioTest(unittest.TestCase):
             self.fail("El metodo debio ejecutarse!")
         else:
             pass
-        
-        
-         
+               
     def testMinimoReservaValido(self):
         Tar = Tarifa(100,200)
         tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-10/15:45","%y-%m-%d/%H:%M")]
@@ -95,17 +93,8 @@ class calcularPrecioTest(unittest.TestCase):
         except Exception:
             self.fail("El metodo debio ejecutarse!")
         else:
-            pass
-
-    ##Se procede a realizar caso de prueba con malicia.
-    def testCalcularPrecio1(self):
-        Prec= Tarifa(200,500)
-        tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-10/15:40","%y-%m-%d/%H:%M")]
-        try:
-            calcularPrecio(Prec, tiempo)
-            fail("Se debe generar un error de calculo de tarifa")
-        except Exception:
             pass 
+        
     def testMaximoReservaInvalido(self):
         Tar = Tarifa(100,200)
         tiempo = [datetime.strptime("15-04-10/15:30","%y-%m-%d/%H:%M"), datetime.strptime("15-04-10/15:44","%y-%m-%d/%H:%M")]
@@ -124,7 +113,7 @@ class calcularPrecioTest(unittest.TestCase):
         except Exception:
             pass
         else:
-            self.fail("El metodo debio tirar error! La fecha es muy antgua")
+            self.fail("El metodo debio tirar error! La fecha es muy antigua")
    
     def testTarifaFlotante(self):
         Tar = Tarifa(2.33333333333,3.5555555)
